@@ -1,0 +1,42 @@
+{
+    "name": "demian/laravel-rethinkdb",
+    "description": "RethinkDB Cache Driver for Laravel 5",
+    "keywords": [
+        "demian",
+        "rethikdb",
+        "cache",
+        "larave"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Demian Dekoninck",
+            "homepage": "https://www.demian.io",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Demian\\RethinkDB\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Demian\\RethinkDB\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "5.*"
+    },
+    "require": {
+        "danielmewes/php-rql": "^2.3",
+        "illuminate/contracts": "^5.3",
+        "illuminate/database": "^5.3",
+        "illuminate/support": "^5.3",
+        "nesbot/carbon": "^1.21"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
