@@ -1,5 +1,5 @@
 {
-    "name": "demian/laravel-rethinkdb",
+    "name": "demian/laravel-cache-rethinkdb",
     "description": "RethinkDB Cache Driver for Laravel 5",
     "keywords": [
         "demian",
