@@ -38,6 +38,7 @@ class RethinkDBStore implements Store
      */
     public function get($key)
     {
+        echo 'get';
         $prefixed = $this->prefix.$key;
     
         $cache = $this->rethinkdb->query()->first(['key' => $prefixed]);
@@ -73,7 +74,7 @@ class RethinkDBStore implements Store
         $expiration = $this->getTime() + (int) ($minutes * 60);
         
         $item = $this->rethinkdb->query()->first(['key' => $key]);
-            
+        
         if (is_null($item)) {
             $this->rethinkdb->query()->create(compact('key', 'value', 'expiration'));
         } else {

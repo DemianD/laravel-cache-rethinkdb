@@ -8,19 +8,11 @@ class RethinkDBServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Cache::extend('rethinkdb', function ($app) {
-            $connection = Db::connection('rethinkdb');
+        Cache::extend('rethinkdb', function ($app, $config) {
+            $config = $config['connection'];
+            $connection = new RethinkDBConnection($config['host'], $config['port'], $config['database'], $config['table']);
             
             return Cache::repository(new RethinkDBStore($connection));
-        });
-    }
-    
-    public function register()
-    {
-        $this->app->singleton('db.connection.rethinkdb', function ($app, $parameters) {
-            list($connection, $database, $prefix, $config) = $parameters;
-    
-            return new RethinkDBConnection($database, $prefix, $config);
         });
     }
 }

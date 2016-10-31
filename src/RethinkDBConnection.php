@@ -3,7 +3,7 @@
 use Illuminate\Database\Connection;
 use r;
 
-class RethinkDBConnection extends Connection
+class RethinkDBConnection
 {
     /**
      * @var \r\Connection
@@ -15,23 +15,25 @@ class RethinkDBConnection extends Connection
      */
     protected $db;
     
-    public function __construct($database, $prefix, $config)
+    /**
+     * @var
+     */
+   protected $table;
+    
+    /**
+     * RethinkDBConnection constructor.
+     *
+     * @param $host
+     * @param $port
+     * @param $database
+     * @param $table
+     */
+    public function __construct($host, $port, $database, $table)
     {
-        $this->connection = r\connect($config['host'].':'.$config['port']);
+        $this->connection = r\connect($host.':'.$port);
         $this->db = r\db($database);
         
-        $this->useDefaultPostProcessor();
-        $this->useDefaultQueryGrammar();
-    }
-    
-    protected function getDefaultQueryGrammar()
-    {
-        return new Grammar;
-    }
-    
-    protected function getDefaultPostProcessor()
-    {
-        return new Processor;
+        $this->table = $table;
     }
     
     public function getDatabase()
@@ -39,8 +41,13 @@ class RethinkDBConnection extends Connection
         return $this->db;
     }
     
+    public function getConnection()
+    {
+        return $this->connection;
+    }
+    
     public function query()
     {
-        return new Query\Query($this->connection, $this->db, $this->table);
+        return new Query\Query($this->db, $this->connection, $this->table);
     }
 }

@@ -1,30 +1,20 @@
 <?php namespace Demian\RethinkDB\Query;
 
 use Demian\RethinkDB\Models\CacheItem;
+use Demian\RethinkDB\RethinkDBConnection;
 use r\Queries\Tables\Table;
 
 class Query
 {
-    
-    /**
-     * @var string
-     */
-    private $table = 'cache';
-    
-    private $connection;
-    
     private $db;
+    private $connection;
+    private $table;
     
-    /**
-     * Query constructor.
-     *
-     * @param $connection
-     * @param $db
-     */
-    public function __construct($connection, $db)
+    public function __construct($db, $connection, $table)
     {
-        $this->connection = $connection;
         $this->db = $db;
+        $this->connection = $connection;
+        $this->table = $table;
     }
     
     public function first($filter = null)
