@@ -6,12 +6,12 @@ This way you can also view them in real time.
 
 ## TODO
 - More tests
-- Make a Quere Builder, Eloquent for RethinkDB
+- Make a Query Builder, Eloquent for RethinkDB
 
 ## Setup
 Install RethinkDB. 
-- brew install rethinkdb
-- First install Kitematic, search for rethinkdb and install the docker image.
+- brew install rethinkdb or
+- install Kitematic, search for rethinkdb and install the docker image.
 
 ## Installation
 
