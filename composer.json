@@ -3,9 +3,10 @@
     "description": "RethinkDB Cache Driver for Laravel 5",
     "keywords": [
         "demian",
-        "rethikdb",
+        "rethinkdb",
         "cache",
-        "larave"
+        "laravel",
+        "driver"
     ],
     "license": "MIT",
     "authors": [
