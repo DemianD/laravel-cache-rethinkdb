@@ -38,7 +38,6 @@ class RethinkDBStore implements Store
      */
     public function get($key)
     {
-        echo 'get';
         $prefixed = $this->prefix.$key;
     
         $cache = $this->rethinkdb->query()->first(['key' => $prefixed]);
